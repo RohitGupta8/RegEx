@@ -134,4 +134,20 @@ public class UserRegistrationTest {
         boolean result = userRegistration.passwordRule4("akdj@ds@A");
         Assert.assertFalse(result);
     }
+
+    /**
+     * Unit test for validating email sequence
+     */
+
+    @Test
+    public void givenEmail1WhenProperShouldReturnTrue() {
+        boolean result = userRegistration.emailIdValidator("abc.100@abc.com.au");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenEmail1WhenNotProperShouldReturnFalse() {
+        boolean result = userRegistration.emailIdValidator("abc()*@gmail.com");
+        Assert.assertFalse(result);
+    }
 }
