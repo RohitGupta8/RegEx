@@ -58,4 +58,18 @@ public class UserRegistrationTest {
         boolean result = userRegistration.email("abc()*@gmail.com");
         Assert.assertFalse(result);
     }
+    /**
+     * Unit test for validating format of mobile number
+     */
+    @Test
+    public void givenPhoneNumberWhenProperShouldReturnTrue() {
+        boolean result = userRegistration.phoneNumber("91 7844999888");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenPhoneNumberWhenNotProperShouldReturnFalse() {
+        boolean result = userRegistration.phoneNumber("+91 7844999888");
+        Assert.assertFalse(result);
+    }
 }
