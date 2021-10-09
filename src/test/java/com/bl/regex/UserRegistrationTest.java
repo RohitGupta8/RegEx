@@ -104,4 +104,19 @@ public class UserRegistrationTest {
         boolean result = userRegistration.passwordRule2("psw@");
         Assert.assertFalse(result);
     }
+
+    /**
+     * Unit test for validating password with atLeast one numeric number
+     */
+    @Test
+    public void givenPasswordRule3WhenProperShouldReturnTrue() {
+        boolean result = userRegistration.passwordRule3("123Aa@123");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenPasswordRule3WhenNotProperShouldReturnFalse() {
+        boolean result = userRegistration.passwordRule3("123456789");
+        Assert.assertFalse(result);
+    }
 }
