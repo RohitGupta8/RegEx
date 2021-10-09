@@ -44,4 +44,18 @@ public class UserRegistrationTest {
         boolean result = userRegistration.lastName("gupta");
         Assert.assertFalse(result);
     }
+    /**
+     * Unit test for validating email address
+     */
+    @Test
+    public void givenEmailWhenProperShouldReturnTrue() {
+        boolean result = userRegistration.email("abc@gmail.com");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenEmailWhenNotProperShouldReturnFalse() {
+        boolean result = userRegistration.email("abc()*@gmail.com");
+        Assert.assertFalse(result);
+    }
 }
